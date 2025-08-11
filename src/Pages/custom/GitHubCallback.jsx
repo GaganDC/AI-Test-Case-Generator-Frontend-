@@ -12,11 +12,11 @@ export default function GitHubCallback() {
 
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
-
+    const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000";
     if (code) {
-      fetch(`https://localhost:5173//github/callback?code=${code}`)
-        .then(res => res.json())
-        .then(data => {
+      fetch(`${API_BASE}/github/callback?code=${code}`)
+        .then((res) => res.json())
+        .then((data) => {
           if (!data.access_token) {
             setError("No access token received");
             return;
@@ -34,7 +34,7 @@ export default function GitHubCallback() {
           // Redirect to dashboard
           navigate("/dashboard", { replace: true });
         })
-        .catch(err => {
+        .catch((err) => {
           console.error("GitHub OAuth Error:", err);
           setError("Failed to sign in with GitHub");
         });
