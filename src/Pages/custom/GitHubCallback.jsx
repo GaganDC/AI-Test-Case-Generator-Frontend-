@@ -14,7 +14,7 @@ export default function GitHubCallback() {
     const code = urlParams.get("code");
 
     if (code) {
-      fetch(`https://ai-test-case-generator-backend.onrender.com/github/callback?code=${code}`)
+      fetch(`https://localhost:5173//github/callback?code=${code}`)
         .then(res => res.json())
         .then(data => {
           if (!data.access_token) {
