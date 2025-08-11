@@ -27,7 +27,7 @@ export default function Dashboard() {
   const selectRepository = async (repo) => {
     setSelectedRepo(repo);
     try {
-      const token = localStorage.getItem("github_token");
+      const token = localStorage.getItem("authToken");
 
       const res = await fetch(
         `https://ai-test-case-generator-backend.onrender.com/repo-files?owner=${repo.owner.login}&repo=${repo.name}&token=${token}`
