@@ -14,7 +14,7 @@ export default function GitHubCallback() {
     const code = urlParams.get("code");
     const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000";
     if (code) {
-      fetch(`${API_BASE}/github/callback?code=${code}`)
+      fetch(`https://ai-test-case-generator-backend.onrender.com/github/callback?code=${code}`)
         .then((res) => res.json())
         .then((data) => {
           if (!data.access_token) {
