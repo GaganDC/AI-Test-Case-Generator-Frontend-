@@ -30,7 +30,7 @@ export default function Dashboard() {
       const token = localStorage.getItem("github_token");
 
       const res = await fetch(
-        `http://localhost:8000/repo-files?owner=${repo.owner.login}&repo=${repo.name}&token=${token}`
+        `https://ai-test-case-generator-backend.onrender.com/repo-files?owner=${repo.owner.login}&repo=${repo.name}&token=${token}`
       );
 
       if (!res.ok) throw new Error("Failed to fetch repo files from backend");
@@ -70,7 +70,7 @@ const handleGenerate = async () => {
 
     console.log("📤 Sending to backend:", payload);
 
-    const response = await fetch("http://localhost:8000/generate-testcases", {
+    const response = await fetch("https://ai-test-case-generator-backend.onrender.com/generate-testcases", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)

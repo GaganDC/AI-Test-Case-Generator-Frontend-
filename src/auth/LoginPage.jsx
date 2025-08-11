@@ -5,7 +5,7 @@ import { Sparkles, Github } from "lucide-react";
 
 export default function LoginPage() {
   const handleGitHubLogin = () => {
-    window.location.href = "http://localhost:8000/github/login";
+    window.location.href = "https://ai-test-case-generator-backend.onrender.com/github/login";
   };
 
   return (
