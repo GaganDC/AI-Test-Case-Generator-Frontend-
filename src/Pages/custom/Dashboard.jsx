@@ -17,6 +17,8 @@
     const [generatedTestCases, setGeneratedTestCases] = useState([]);
     
     const repositories = JSON.parse(localStorage.getItem("repos")) || [];
+    
+    const user = JSON.parse(localStorage.getItem("githubUser"));
 
     const handleSignOut = () => {
       localStorage.clear();
@@ -251,7 +253,7 @@ const handleGenerate = async () => {
 
     return (
       <div className="min-h-screen bg-gray-50">
-        <Header handleSignOut={handleSignOut} />
+        <Header user={user} handleSignOut={handleSignOut} />
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-1">
