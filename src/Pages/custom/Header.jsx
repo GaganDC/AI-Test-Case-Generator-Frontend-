@@ -20,7 +20,7 @@ export default function Header({ user,onSignOut }) {
       <div className="flex items-center gap-4">
         <span className="text-sm text-gray-600">👤 Welcome, {user?.name || "Demo User"}</span>
         <button
-          onClick={onSignOut}
+          onClick={handleSignOut}
           className="px-4 py-2 border rounded hover:bg-gray-100 text-sm"
         >
           Sign out

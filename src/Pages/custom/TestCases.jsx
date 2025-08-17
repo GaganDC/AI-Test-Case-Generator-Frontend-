@@ -1,4 +1,10 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
@@ -13,7 +19,8 @@ export default function TestCases({ testCases, onGenerateCode, generating }) {
       <CardContent>
         {testCases.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
-            No test cases generated yet. Select files and click "Generate Test Cases".
+            No test cases generated yet. Select files and click "Generate Test
+            Cases".
           </div>
         ) : (
           <div className="space-y-4">
@@ -33,12 +40,25 @@ export default function TestCases({ testCases, onGenerateCode, generating }) {
                     >
                       {testCase.priority}
                     </Badge>
-                    <Button size="sm" onClick={() => onGenerateCode(testCase)} disabled={generating}>
-                      {generating ? <Loader2 className="w-4 h-4 animate-spin" /> : "Generate Code"}
+                    <Button
+                      size="sm"
+                      onClick={() => onGenerateCode(testCase)}
+                      disabled={generating}
+                    >
+                      {generating ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        "Generate Code"
+                      )}
                     </Button>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600">{testCase.description}</p>
+                <pre
+                  className="text-sm text-gray-600 bg-gray-100 p-4 rounded overflow-auto whitespace-pre-wrap"
+                  style={{ maxHeight: "400px", fontFamily: "monospace" }}
+                >
+                  {testCase.description}
+                </pre>
               </div>
             ))}
           </div>
