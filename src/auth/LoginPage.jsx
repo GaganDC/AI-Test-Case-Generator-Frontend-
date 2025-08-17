@@ -4,8 +4,10 @@ import { Button } from "../components/ui/button";
 import { Sparkles, Github } from "lucide-react";
 
 export default function LoginPage() {
+
+  const backendUrl = import.meta.env.VITE_API_URL;
   const handleGitHubLogin = () => {
-    window.location.href = "http://127.0.0.1:8000/github/login";
+    window.location.href = `${backendUrl}/github/login`;
   };
 
   return (
