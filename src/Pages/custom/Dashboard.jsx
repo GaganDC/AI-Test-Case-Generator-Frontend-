@@ -91,7 +91,7 @@ const handleGenerate = async () => {
     console.log("Decoded file content preview:", codeContent.slice(0, 200));
 
     // Generate test cases (send language & code to backend)
-    const response = await fetch("${backendUrl}/generate-testcases", {
+    const response = await fetch(`${backendUrl}/generate-testcases`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
